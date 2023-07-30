@@ -1,0 +1,38 @@
+import { useQuery, useMutation, queryCache } from "react-query";
+
+function TodoList() {
+  const { data } = useQuery("todos", fetchTodos);
+
+  const addTodoMutation = useMutation(addTodo, {
+    onSuccess: () => {
+      queryCache.refetchQueries("todos"); // Trigger a refetch of the 'todos' query after successful mutation
+    },
+  });
+
+  function handleAddTodo() {
+    addTodoMutation.mutate({ title: "New Todo" });
+  }
+
+  return (
+    <div>
+      {data.map((todo) => (
+        <div key={todo.id}>{todo.title}</div>
+      ))}
+      <button onClick={handleAddTodo}>Add Todo</button>
+    </div>
+  );
+}
+
+// Example of accessing the cached data anywhere in your application:
+
+import { queryCache } from "react-query";
+
+// Access the cached data for the 'todos' query key
+const todosData = queryCache.getQueryData("todos");
+
+// Update the cached data for the 'todos' query key
+const updatedTodos = [...todosData, { id: 4, title: "New Todo" }];
+queryCache.setQueryData("todos", updatedTodos);
+
+// Manually trigger a refetch of the 'todos' query
+queryCache.invalidateQueries("todos");

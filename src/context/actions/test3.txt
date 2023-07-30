@@ -1,0 +1,77 @@
+// UserContext.tsx
+import { LOGIN_USER, LOGOUT_USER } from './actionTypes';
+
+interface UserState {
+  user: User | null;
+  isAuthenticated: boolean;
+  // Other user-related state properties
+}
+
+interface UserAction {
+  type: string;
+  payload?: any;
+}
+
+// Reducer function for UserContext
+const userReducer = (state: UserState, action: UserAction): UserState => {
+  switch (action.type) {
+    case LOGIN_USER:
+      // Update state after successful login
+      return {
+        ...state,
+        user: action.payload.user,
+        isAuthenticated: true,
+      };
+    case LOGOUT_USER:
+      // Update state after logout
+      return {
+        ...state,
+        user: null,
+        isAuthenticated: false,
+      };
+    // Handle other user-related action types here if needed
+    default:
+      return state;
+  }
+};
+
+// ... Rest of the code for UserContext ...
+
+
+// EmployeesContext.tsx
+import { ADD_EMPLOYEE, REMOVE_EMPLOYEE } from './actionTypes';
+
+interface EmployeesState {
+  employees: Employee[];
+  // Other employee-related state properties
+}
+
+interface EmployeesAction {
+  type: string;
+  payload?: any;
+}
+
+// Reducer function for EmployeesContext
+const employeesReducer = (state: EmployeesState, action: EmployeesAction): EmployeesState => {
+  switch (action.type) {
+    case ADD_EMPLOYEE:
+      // Update state after adding an employee
+      return {
+        ...state,
+        employees: [...state.employees, action.payload.employee],
+      };
+    case REMOVE_EMPLOYEE:
+      // Update state after removing an employee
+      return {
+        ...state,
+        employees: state.employees.filter((employee) => employee.id !== action.payload.employeeId),
+      };
+    // Handle other employee-related action types here if needed
+    default:
+      return state;
+  }
+};
+
+// ... Rest of the code for EmployeesContext ...
+
+// Add similar action types and reducer functions for other contexts as needed

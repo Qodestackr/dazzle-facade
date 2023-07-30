@@ -1,0 +1,16 @@
+// UserLogin.tsx
+import React from 'react';
+import { useUserContext } from './UserContext';
+import { LOGIN_USER } from './actionTypes';
+
+const UserLogin: React.FC = () => {
+  const { dispatch } = useUserContext();
+
+  const handleLogin = () => {
+    // Perform login logic, then dispatch the LOGIN_USER action with the user data
+    const userData = { /* User data from login */ };
+    dispatch({ type: LOGIN_USER, payload: { user: userData } });
+  };
+
+  // Render login form and button
+};

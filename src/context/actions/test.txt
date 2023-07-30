@@ -1,0 +1,61 @@
+// EmployeesContext.tsx
+
+import React, { createContext, useReducer, useContext } from 'react';
+import { Employee } from './types';
+
+interface EmployeesState {
+  employees: Employee[];
+  // Other employee-related state properties
+}
+
+interface EmployeesAction {
+  type: string;
+  payload?: any;
+}
+
+const initialEmployeesState: EmployeesState = {
+  employees: [],
+  // Initialize other employee-related state properties here
+};
+
+const employeesReducer = (state: EmployeesState, action: EmployeesAction): EmployeesState => {
+  switch (action.type) {
+    case 'ADD_EMPLOYEE':
+      // Handle adding an employee to the state
+      return {
+        ...state,
+        employees: [...state.employees, action.payload.employee],
+      };
+    case 'REMOVE_EMPLOYEE':
+      // Handle removing an employee from the state
+      return {
+        ...state,
+        employees: state.employees.filter((employee) => employee.id !== action.payload.employeeId),
+      };
+    // Handle other employee-related action types here if needed
+    default:
+      return state;
+  }
+};
+
+const EmployeesContext = createContext<{
+  state: EmployeesState;
+  dispatch: React.Dispatch<EmployeesAction>;
+}>({
+  state: initialEmployeesState,
+  dispatch: () => undefined,
+});
+
+const EmployeesProvider: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(employeesReducer, initialEmployeesState);
+
+  return (
+    <EmployeesContext.Provider value={{ state, dispatch }}>
+      {children}
+    </EmployeesContext.Provider>
+  );
+};
+
+const useEmployeesContext = () => useContext(EmployeesContext);
+
+export { EmployeesProvider, useEmployeesContext };
