@@ -1,5 +1,8 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import ExampleComponent from "./ExampleComponent";
+import Input from "./core/components/input/Input";
+
+import { SetStateAction, useState } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,10 +35,54 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleNameChange = (value: SetStateAction<string>) => {
+    setName(value);
+  };
+
+  const handleEmailChange = (value: any) => {
+    setEmail(value);
+    // Simulate email validation and set error message if email is invalid
+    if (!value.includes("@")) {
+      setErrorMessage("Please enter a valid email address");
+    } else {
+      setErrorMessage("");
+    }
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <>Dazzle HR Init</>;
-      <ExampleComponent />
+      {/* <ExampleComponent /> */}
+      {/* Input with no error */}
+      <Input
+        label="Name"
+        type="text"
+        value={name}
+        onChange={handleNameChange}
+        placeholder="Enter your name"
+      />
+      {/* Input with error */}
+      <Input
+        label="Email"
+        type="email"
+        value={email}
+        onChange={handleEmailChange}
+        placeholder="Enter your email"
+        errorMessage={errorMessage}
+      />
+      {/* Input with custom class */}
+      <Input
+        label="Phone"
+        type="text"
+        value="jkkjjk"
+        onChange={(e) => {}}
+        placeholder="Enter your phone number"
+        className="border-purple-500"
+      />
     </QueryClientProvider>
   );
 }
