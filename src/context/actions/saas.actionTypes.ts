@@ -45,3 +45,5 @@ export const SET_UP_HR_PLATFORM_SUCCESS = "SET_UP_HR_PLATFORM_SUCCESS";
 export const SET_UP_HR_PLATFORM_ERROR = "SET_UP_HR_PLATFORM_ERROR";
 
 // Add more action types as needed for other billing and setup-related processes
+
+// Goal: Build an MVP by next month(Weekends: Dazzle, )

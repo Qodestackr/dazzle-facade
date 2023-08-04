@@ -1,8 +1,5 @@
+import { Badge } from "@/components/ui/badge";
 
-function Badge() {
-  return (
-    <div>Badge</div>
-  )
+export function BadgeDemo() {
+  return <Badge>Badge</Badge>;
 }
-
-export default Badge

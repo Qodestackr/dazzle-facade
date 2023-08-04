@@ -1,4 +1,4 @@
-Authentication and Authorization:
+Authentication and Authorization: 
 \*OAuth2.0 and OIDC
 \*Social Login
 Passwordless

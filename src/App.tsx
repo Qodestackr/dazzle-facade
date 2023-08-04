@@ -3,6 +3,9 @@ import ExampleComponent from "./ExampleComponent";
 import Input from "./core/components/input/Input";
 
 import { SetStateAction, useState } from "react";
+import TestFileInput from "./core/components/file-input/TestFileInput";
+import TestButton from "./core/components/button/TestButton";
+import { TableDemo } from "./core/components/table/TableTest";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -55,16 +58,15 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <>Dazzle HR Init</>;
-      {/* <ExampleComponent /> */}
+      <>Dazzle HR Init</>;{/* <ExampleComponent /> */}
       {/* Input with no error */}
-      <Input
+      {/* <Input
         label="Name"
         type="text"
         value={name}
         onChange={handleNameChange}
         placeholder="Enter your name"
-      />
+      /> */}
       {/* Input with error */}
       <Input
         label="Email"
@@ -75,7 +77,7 @@ function App() {
         errorMessage={errorMessage}
       />
       {/* Input with custom class */}
-      <Input
+      {/* <Input
         label="Phone"
         type="text"
         value="jkkjjk"
@@ -83,6 +85,16 @@ function App() {
         placeholder="Enter your phone number"
         className="border-purple-500"
       />
+      <input
+        type="file"
+        className="file-input file-input-bordered w-full max-w-xs"
+      />
+
+      <h3>FILE TEST INPUT</h3>
+      <TestFileInput /> */}
+      <h3>Test Btn</h3>
+      <TestButton />
+      <TableDemo />
     </QueryClientProvider>
   );
 }

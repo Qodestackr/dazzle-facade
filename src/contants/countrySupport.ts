@@ -1,10 +1,10 @@
 export const countrySupport = [
   {
-    countryCode: "",
+    countryCode: "254",
     countryName: "Kenya",
   },
   {
-    countryCode: "",
+    countryCode: "255",
     countryName: "Tanzania",
   },
   {
@@ -20,7 +20,7 @@ export const countrySupport = [
     countryName: "Egypt",
   },
   {
-    countryCode: "",
+    countryCode: "234",
     countryName: "Nigeria",
   },
   {
