@@ -1,6 +1,6 @@
 import React, { useRef, ChangeEvent } from "react";
 import clsx from "clsx";
-import { cn } from "../../utils/styles/classnames";
+import { cn } from "@core/utils/styles/classnames";
 
 interface FileInputProps {
   label: string;

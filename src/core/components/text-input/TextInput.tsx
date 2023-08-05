@@ -1,4 +1,4 @@
-import { cn } from "../../utils/styles/classnames";
+import { cn } from "@core/utils/styles/classnames";
 
 function TextInput() {
   return <div>TextInput</div>;

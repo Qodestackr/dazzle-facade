@@ -1,5 +1,4 @@
-import { cn } from "../../utils/styles/classnames";
-
+import { cn } from "@core/utils/styles/classnames";
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Check } from "lucide-react";

@@ -3,8 +3,6 @@ import { FaTools } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 export function UnderConstruction() {
-  // useDocumentTitle("Under Construction");
-
   const currentLocation = useLocation();
   const pageName = currentLocation?.pathname.slice(1);
 

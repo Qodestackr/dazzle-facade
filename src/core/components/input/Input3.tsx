@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "../../utils/styles/classnames";
+import { cn } from "@core/utils/styles/classnames";
 import { z } from "zod";
 
 // Define a validation schema using Zod
@@ -7,7 +7,7 @@ const inputSchema = z.object({
   label: z.string(),
   type: z.string(),
   value: z.string(),
-//   onChange: z.function(z.string()), // Assuming the value will always be a string
+  //   onChange: z.function(z.string()), // Assuming the value will always be a string
   placeholder: z.string().optional(),
   disabled: z.boolean().optional(),
   required: z.boolean().optional(),

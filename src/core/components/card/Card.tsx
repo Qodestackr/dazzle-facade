@@ -1,4 +1,4 @@
-import { cn } from "../../utils/styles/classnames";
+import { cn } from "@core/utils/styles/classnames";
 import * as React from "react";
 
 const Card = React.forwardRef<

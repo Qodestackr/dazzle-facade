@@ -1,6 +1,6 @@
 import React, { ErrorInfo, useEffect, useState } from "react";
 import * as Sentry from "@sentry/react";
-import { cn } from "../../utils/styles/classnames";
+import { cn } from "@core/utils/styles/classnames";
 
 interface ErrorBoundaryProps {
   fallback: React.ReactNode;

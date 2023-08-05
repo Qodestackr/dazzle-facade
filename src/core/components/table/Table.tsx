@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../utils/styles/classnames";
+import { cn } from "@core/utils/styles/classnames";
 
 const Table = React.forwardRef<
   HTMLTableElement,
