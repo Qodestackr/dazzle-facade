@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { InputProps } from "../../../types/interfaces/dom/input";
+import { cn } from "../../utils/styles/classnames";
 
 const Input: React.FC<InputProps> = ({
   label,

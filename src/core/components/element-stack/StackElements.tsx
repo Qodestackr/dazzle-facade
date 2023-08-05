@@ -1,8 +1,7 @@
+import { cn } from "../../utils/styles/classnames";
 
 function StackElements() {
-  return (
-    <div>StackElements</div>
-  )
+  return <div>StackElements</div>;
 }
 
-export default StackElements
+export default StackElements;

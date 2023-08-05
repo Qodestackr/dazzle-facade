@@ -1,5 +1,6 @@
 import React, { useRef, ChangeEvent } from "react";
 import clsx from "clsx";
+import { cn } from "../../utils/styles/classnames";
 
 interface FileInputProps {
   label: string;
@@ -10,8 +11,6 @@ interface FileInputProps {
   onChange: (file: File | null) => void;
   className?: string;
 }
-
-
 
 const FileInput: React.FC<FileInputProps> = ({
   label,

@@ -1,29 +1,32 @@
-import axios from "axios";
-// const BASE_URL = process.env.REACT_APP_BASE_URL;
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-// default headers
+/**
+ * Create a custom Axios instance with default configuration.
+ * @param config Additional configuration to be used for the instance.
+ * @returns Custom Axios instance.
+ */
+export function createAxiosInstance(
+  config: AxiosRequestConfig = {}
+): AxiosInstance {
+  return axios.create({
+    method: "GET",
+    // baseURL: process.env.REACT_APP_BASE_URL,
+    // Add other default configuration options here as needed
+    ...config,
+  });
+}
 
-export const axiosDefaultInstance = axios.create({
-  method: "GET",
-  // baseURL: BASE_URL,
-  //   transformRequest?: AxiosRequestTransformer | AxiosRequestTransformer[];
-  //   transformResponse?: AxiosResponseTransformer | AxiosResponseTransformer[];
-  //   headers?: (RawAxiosRequestHeaders & MethodsHeaders) | AxiosHeaders;
+/**
+ * Axios instance with default settings.
+ * Used for making general API requests.
+ */
+export const axiosDefaultInstance = createAxiosInstance({});
 
-  //   timeout?: Milliseconds;
-  //   timeoutErrorMessage?: string;
-  //   withCredentials?: boolean;
-  //   auth?: AxiosBasicCredentials;
-  //   responseType?: ResponseType;
-  //   signal?: GenericAbortSignal;
-  //   insecureHTTPParser?: boolean;
-  //   env?: {
-  //     FormData?: new (...args: any[]) => object;
-  //   };
-  //   formSerializer?: FormSerializerOptions;
-});
-
-export const axiosPrivateInstance = axios.create({
+/**
+ * Axios instance for private API requests.
+ * Includes authentication token and other necessary headers.
+ */
+export const axiosPrivateInstance = createAxiosInstance({
   baseURL: "",
   headers: {
     "Content-Type": "application/json",
@@ -31,22 +34,26 @@ export const axiosPrivateInstance = axios.create({
   withCredentials: true,
 });
 
-// Global request interceptor for error handling
+/**
+ * Global response interceptor for error handling.
+ */
 axiosDefaultInstance.interceptors.response.use(
-  (response) => response,
+  (response: AxiosResponse) => response,
   (error) => {
     // Transform any relevant error data here if needed
     throw error;
   }
 );
 
-// Request interceptor to add an authentication token
-axiosDefaultInstance.interceptors.request.use((config: any) => {
-  const authToken = "getAuthTokenFromLocalStorage()";
+/**
+ * Request interceptor to add an authentication token.
+ */
+// axiosDefaultInstance.interceptors.request.use((config: AxiosRequestConfig) => {
+//   const authToken = "getAuthTokenFromLocalStorage()";
 
-  if (authToken) {
-    config.headers["Authorization"] = `Bearer ${authToken}`;
-  }
+//   if (authToken) {
+//     config.headers["Authorization"] = `Bearer ${authToken}`;
+//   }
 
-  return config;
-});
+//   return config;
+// });

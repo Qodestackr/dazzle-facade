@@ -1,11 +1,10 @@
 import { QueryClient, QueryClientProvider } from "react-query";
-import ExampleComponent from "./ExampleComponent";
-import Input from "./core/components/input/Input";
+import Input from "@/core/components/input/Input";
 
 import { SetStateAction, useState } from "react";
-import TestFileInput from "./core/components/file-input/TestFileInput";
-import TestButton from "./core/components/button/TestButton";
-import { TableDemo } from "./core/components/table/TableTest";
+import TestFileInput from "@core/components/file-input/TestFileInput";
+import TestButton from "@core/components/button/TestButton";
+import { TableDemo } from "@core/components/table/TableTest";
 
 const queryClient = new QueryClient({
   defaultOptions: {

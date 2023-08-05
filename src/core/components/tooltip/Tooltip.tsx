@@ -1,12 +1,14 @@
-import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+// import { Button } from "@/components/ui/button";
+// import {
+//   Tooltip,
+//   TooltipContent,
+//   TooltipProvider,
+//   TooltipTrigger,
+// } from "@/components/ui/tooltip";
 
-export function TooltipDemo() {
+import { cn } from "@core/utils/styles/classnames";
+
+export default function TooltipDemo() {
   return (
     <TooltipProvider>
       <Tooltip>

@@ -10,23 +10,7 @@ export interface IChangePasswordProps {
 }
 
 export interface IProfileQueryResponse {
-  userName?: string;
-  dateOfBirth?: string | number | Date;
-  email: string;
-  linkToResume: string;
-  phoneNumber?: string;
-  profilePictureUrl?: string;
-  linkedinUrl?: string;
-  mentorShipSessions?: any[];
-  mentorshipAvailabilites?: any[];
-  userCalendars: { calendarId: string; calendarType: string }[];
-  fieldsOfInterest?: any[];
-  areasOfExpertise?: any[];
-  rating?: number;
-  country?: string;
-  gender?: string;
-  jobTitle?: string;
-  levelOfExperience?: string;
+  // Mirror Backend Query Response
   companyName?: string;
 }
 

@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 import clsx from "clsx";
 // import { Button } from "@/components/ui/button";
+import { cn } from "../../utils/styles/classnames";
 
 type BaseButtonProps = {
   variant?: "neutral" | "primary" | "secondary" | "accent" | "ghost" | "link";

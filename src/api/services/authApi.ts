@@ -1,10 +1,27 @@
 import { axiosDefaultInstance } from "../axios";
-import { useQuery } from "react-query";
+import { useMutation, UseMutationOptions } from "react-query";
 
-export const getProfile = () => {};
+export interface AuthCredentials {
+  email: string;
+  password: string;
+}
 
-export const editProfile = () => {};
+export const signUp = async (data: AuthCredentials): Promise<void> => {
+  await axiosDefaultInstance.post("/auth/sign-up", data);
+};
 
-export const signUp = () => {};
+export const useSignUpMutation = (
+  options?: UseMutationOptions<void, any, AuthCredentials>
+) => {
+  return useMutation<void, any, AuthCredentials>(signUp, options);
+};
 
-export const login = () => {};
+export const login = async (data: AuthCredentials): Promise<void> => {
+  await axiosDefaultInstance.post("/auth/login", data);
+};
+
+export const useLoginMutation = (
+  options?: UseMutationOptions<void, any, AuthCredentials>
+) => {
+  return useMutation<void, any, AuthCredentials>(login, options);
+};

@@ -1,16 +1,22 @@
 export interface IBillingDetails {
-    // subscription details
+  subscriptionPlan: string;
+  startDate: Date;
+  endDate: Date;
+  autoRenew: boolean;
 }
 
-type PaymentMethodType = 'DazzleWallet' | 'Mpesa' | 'Equitel' | 'Flutterwave' | 'Paystack'
-
-// add auto-renew toggle
+type PaymentMethodType =
+  | "DazzleWallet"
+  | "Mpesa"
+  | "Equitel"
+  | "Flutterwave"
+  | "Paystack";
 
 export interface IBillingHistory {
-    invoiceNumber: '';
-    dueDate: '11th Dec, 2022';
-    Amount: 'KSH. 8,500';
-    paymentMethod: PaymentMethodType;
-    billingType: 'Subscription' | '...';//...
-    status: 'pending'
+  invoiceNumber: string;
+  dueDate: Date;
+  amount: number;
+  paymentMethod: PaymentMethodType;
+  billingType: "Subscription" | "...";
+  status: "pending" | "paid" | "overdue";
 }
