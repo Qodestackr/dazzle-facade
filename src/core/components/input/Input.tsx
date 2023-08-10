@@ -1,73 +1,49 @@
-import React from "react";
-import clsx from "clsx";
-import { InputProps } from "../../../types/interfaces/dom/input";
+import * as React from "react";
 import { cn } from "@core/utils/styles/classnames";
 
-const Input: React.FC<InputProps> = ({
-  label,
-  type,
-  value,
-  onChange,
-  placeholder,
-  disabled,
-  required,
-  errorMessage,
-  id,
-  className,
-}) => {
-  const containerClasses = clsx(
-    "relative",
-    "mb-4", // Base margin-bottom class from daisyui
-    className // Any custom class passed from props
-  );
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  errorMessage?: string;
+}
 
-  const inputClasses = clsx(
-    "block",
-    "w-full",
-    "px-4", // Base padding-x class from daisyui
-    "py-2", // Base padding-y class from daisyui
-    "border",
-    "border-gray-300", // Base border class from daisyui
-    "rounded", // Base border-radius class from daisyui
-    "focus:outline-none", // Apply focus outline removal on focus
-    "focus:border-blue-500", // Apply custom focus border color from daisyui
-    "disabled:opacity-50", // Apply custom opacity for disabled state from daisyui
-    errorMessage ? "border-red-500" : "border-gray-300" // Apply error border color if errorMessage is present
-  );
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, label, errorMessage, ...props }, ref) => {
+    const containerClasses = cn("relative", "mb-4", className);
 
-  const errorClasses = clsx(
-    "text-red-500", // Apply error text color from daisyui
-    "text-sm", // Apply small font size from daisyui
-    "mt-1" // Apply margin-top from daisyui
-  );
+    const inputClasses = cn(
+      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+      errorMessage ? "border-red-500" : "border-gray-300"
+    );
 
-  return (
-    <div className={containerClasses}>
-      <label htmlFor={id || label}>{label}</label>
-      <input
-        id={id || label}
-        type={type}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        disabled={disabled}
-        required={required}
-        aria-invalid={!!errorMessage}
-        aria-describedby={`${id || label}-error`}
-        className={inputClasses}
-      />
-      {errorMessage && (
-        <div
-          id={`${id || label}-error`}
-          role="alert"
-          aria-live="polite"
-          className={errorClasses}
-        >
-          {errorMessage}
-        </div>
-      )}
-    </div>
-  );
-};
+    const errorClasses = cn("text-red-500", "text-sm", "mt-1");
 
-export default Input;
+    return (
+      <div className={containerClasses}>
+        {label && <label htmlFor={props.id}>{label}</label>}
+        <input
+          type={type}
+          className={inputClasses}
+          ref={ref}
+          {...props}
+          aria-invalid={!!errorMessage}
+          aria-describedby={errorMessage && `${props.id}-error`}
+        />
+        {errorMessage && (
+          <div
+            id={`${props.id}-error`}
+            role="alert"
+            aria-live="polite"
+            className={errorClasses}
+          >
+            {errorMessage}
+          </div>
+        )}
+      </div>
+    );
+  }
+);
+
+Input.displayName = "Input";
+
+export { Input };

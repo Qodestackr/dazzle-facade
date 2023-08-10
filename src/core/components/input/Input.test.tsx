@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect"; // for custom jest-dom matchers
 
-import Input from "./Input";
+import { Input } from "./Input";
 
 describe("Input component", () => {
   const defaultProps = {

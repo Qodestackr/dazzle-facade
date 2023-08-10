@@ -1,10 +1,8 @@
 import { QueryClient, QueryClientProvider } from "react-query";
-import Input from "@/core/components/input/Input";
 
 import { SetStateAction, useState } from "react";
-import TestFileInput from "@core/components/file-input/TestFileInput";
-import TestButton from "@core/components/button/TestButton";
-import { TableDemo } from "@core/components/table/TableTest";
+
+import AppLayout from "./layouts/AppLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -57,43 +55,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <>Dazzle HR Init</>;{/* <ExampleComponent /> */}
-      {/* Input with no error */}
-      {/* <Input
-        label="Name"
-        type="text"
-        value={name}
-        onChange={handleNameChange}
-        placeholder="Enter your name"
-      /> */}
-      {/* Input with error */}
-      <Input
-        label="Email"
-        type="email"
-        value={email}
-        onChange={handleEmailChange}
-        placeholder="Enter your email"
-        errorMessage={errorMessage}
-      />
-      {/* Input with custom class */}
-      {/* <Input
-        label="Phone"
-        type="text"
-        value="jkkjjk"
-        onChange={(e) => {}}
-        placeholder="Enter your phone number"
-        className="border-purple-500"
-      />
-      <input
-        type="file"
-        className="file-input file-input-bordered w-full max-w-xs"
-      />
-
-      <h3>FILE TEST INPUT</h3>
-      <TestFileInput /> */}
-      <h3>Test Btn</h3>
-      <TestButton />
-      <TableDemo />
+      <AppLayout children={undefined}></AppLayout>
     </QueryClientProvider>
   );
 }

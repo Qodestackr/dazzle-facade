@@ -2,18 +2,28 @@ import { axiosDefaultInstance } from "../axios";
 import { useMutation, UseMutationOptions } from "react-query";
 
 export interface AuthCredentials {
-  email: string;
+  username: string;
   password: string;
+  email: string;
+  companyName: string;
+  companyAddress: string;
+  industry: string;
+  employeeCount: number;
+  contactPersonName: string;
+  contactEmail: string;
+  phoneNumber: string;
+  subdomain: string;
 }
 
-export const signUp = async (data: AuthCredentials): Promise<void> => {
-  await axiosDefaultInstance.post("/auth/sign-up", data);
+
+export const register = async (data: AuthCredentials): Promise<void> => {
+  await axiosDefaultInstance.post("/api/users/register/", data);
 };
 
 export const useSignUpMutation = (
   options?: UseMutationOptions<void, any, AuthCredentials>
 ) => {
-  return useMutation<void, any, AuthCredentials>(signUp, options);
+  return useMutation<void, any, AuthCredentials>(register, options);
 };
 
 export const login = async (data: AuthCredentials): Promise<void> => {
@@ -25,3 +35,4 @@ export const useLoginMutation = (
 ) => {
   return useMutation<void, any, AuthCredentials>(login, options);
 };
+

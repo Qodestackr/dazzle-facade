@@ -4,7 +4,7 @@ export interface InputProps {
   label: string;
   type: InputType;
   value: string;
-  onChange: (value: string) => void;
+  onChange: (value: any) => void;
   placeholder?: string;
   disabled?: boolean;
   required?: boolean;

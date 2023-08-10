@@ -1,52 +1,55 @@
-import React, { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
-import clsx from "clsx";
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "@core/utils/styles/classnames";
+const buttonVariants = cva(
+  "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
 
-type BaseButtonProps = {
-  variant?: "neutral" | "primary" | "secondary" | "accent" | "ghost" | "link";
-  size?: "sm" | "md" | "lg";
-  fullWidth?: boolean;
-  active?: boolean;
-  as?: React.ElementType;
-};
-
-type PolymorphicButtonProps<T extends React.ElementType> = BaseButtonProps &
-  Omit<React.ComponentProps<T>, keyof BaseButtonProps>;
-
-function Button<T extends React.ElementType = "button">({
-  variant = "primary",
-  size = "md",
-  fullWidth = false,
-  active = false,
-  as: Component = "button",
-  className,
-  ...props
-}: PolymorphicButtonProps<T>) {
-  const baseStyles = clsx(
-    "px-4",
-    "py-2",
-    "rounded",
-    "focus:outline-none",
-    fullWidth && "w-full",
-
-    `btn${active ? "-active" : ""}`,
-    variant === "neutral" ? "" : `btn-${variant}`,
-    size === "sm" ? "text-sm" : size === "lg" ? "text-lg" : "text-base",
-    className
-  );
-
-  // Determine if the component is an anchor ('a') or a button ('button')
-  const isAnchor = Component === "a";
-
-  return (
-    <Component
-      className={baseStyles}
-      {...(isAnchor
-        ? { href: (props as AnchorHTMLAttributes<T>).href }
-        : { type: (props as ButtonHTMLAttributes<T>).type })}
-      {...props}
-    />
-  );
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
 }
 
-export default Button;
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };

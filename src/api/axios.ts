@@ -10,8 +10,7 @@ export function createAxiosInstance(
 ): AxiosInstance {
   return axios.create({
     method: "GET",
-    // baseURL: process.env.REACT_APP_BASE_URL,
-    // Add other default configuration options here as needed
+    baseURL: "http://localhost:8000",
     ...config,
   });
 }
@@ -27,7 +26,7 @@ export const axiosDefaultInstance = createAxiosInstance({});
  * Includes authentication token and other necessary headers.
  */
 export const axiosPrivateInstance = createAxiosInstance({
-  baseURL: "",
+  baseURL: "http://localhost:8000",
   headers: {
     "Content-Type": "application/json",
   },

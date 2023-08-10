@@ -1,4 +1,4 @@
-export { default as Button } from "./button/Button";
+export * from "./button/Button";
 
 export * from "./accordion/Accordion";
 export * from "./checkbox/Checkbox";
