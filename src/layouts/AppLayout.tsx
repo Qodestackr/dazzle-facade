@@ -2,6 +2,7 @@ import React from "react";
 import { useAppRoutes } from "@core/hooks/";
 
 import { routes } from "../routes/index.routes";
+import Footer from "./common/footer/Footer";
 
 //layouts
 // import { HeaderNav, Footer } from "./layouts";
@@ -20,7 +21,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       {/* <HeaderNav /> */}
       {appRoutes}
       {children}
-      {/* {isAuthenticated ? "" : <Footer />} */}
+     <Footer />
     </>
   );
 }
