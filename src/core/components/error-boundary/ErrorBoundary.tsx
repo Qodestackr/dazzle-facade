@@ -1,41 +1,50 @@
-import React, { ErrorInfo, useEffect, useState } from "react";
+import React, { ErrorInfo, ReactNode, useState, useEffect } from "react";
 import * as Sentry from "@sentry/react";
 import { cn } from "@core/utils/styles/classnames";
 
 interface ErrorBoundaryProps {
-  fallback: React.ReactNode;
+  children: ReactNode;
+  fallback: ReactNode;
   showDialog?: boolean;
   dialogOptions?: any;
   onError?: (error: Error, componentStack: string) => void;
-  beforeCapture?: (scope: any, error: ErrorInfo) => void;
+  beforeCapture?: (scope: Sentry.Scope, errorInfo: ErrorInfo) => void;
 }
 
 const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({
+  children,
   fallback,
   showDialog = false,
-  dialogOptions = {},
+  dialogOptions,
   onError,
   beforeCapture,
-  children,
 }) => {
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  const [componentStack, setComponentStack] = useState<string | null>(null);
 
   useEffect(() => {
-    const errorHandler = (error: Error, errorInfo: ErrorInfo) => {
+    const errorHandler = (
+      message: string,
+      source: string,
+      lineno: number,
+      colno: number,
+      error: Error
+    ) => {
       setError(error);
-      setComponentStack(errorInfo.componentStack);
       setHasError(true);
 
-      // Optionally, send the error to Sentry or perform other actions
-      reportErrorToSentry(error, errorInfo);
+      reportErrorToSentry(error);
     };
 
-    window.addEventListener("error", errorHandler);
+    const prevWindowErrorHandler = window.onerror;
+    /**
+   *  // @ts-ignore
+  window.onerror = errorHandler;
+   */
+    (window as any).onerror = errorHandler;
 
     return () => {
-      window.removeEventListener("error", errorHandler);
+      window.onerror = prevWindowErrorHandler;
     };
   }, []);
 
@@ -48,10 +57,12 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({
     }
   }, [hasError, showDialog, dialogOptions, error]);
 
-  const reportErrorToSentry = (error: Error, errorInfo: ErrorInfo) => {
+  const reportErrorToSentry = (error: Error) => {
     if (beforeCapture) {
       Sentry.withScope((scope) => {
-        beforeCapture(scope, errorInfo);
+        beforeCapture(scope, {
+          componentStack: "",
+        });
         Sentry.captureException(error);
       });
     } else {
@@ -59,7 +70,7 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({
     }
 
     if (onError) {
-      onError(error, errorInfo.componentStack);
+      onError(error, "");
     }
   };
 
@@ -67,13 +78,3 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({
 };
 
 export default ErrorBoundary;
-
-// function FallbackComponent() {
-//   return <div>An error has occurred</div>;
-// }
-////////////////////////////////////
-// const myFallback = <FallbackComponent />;
-///////////////////////////////////
-// <ErrorBoundary fallback={myFallback} showDialog>
-//   <Example />
-// </ErrorBoundary>;

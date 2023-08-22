@@ -36,7 +36,7 @@ const FileInput: React.FC<FileInputProps> = ({
       supportedFormats.includes(selectedFile.type);
 
     if (files.length > maxUploads || !isValidFormat) {
-      event.target.value = ""; // Reset the input value to allow selecting the same file again
+      event.target.value = "";
       onChange(null);
       return;
     }

@@ -16,7 +16,7 @@ export * from "./social-share-btn/SocialShareBtn";
 export * from "./toggle/Toggle";
 export * from "./avatar/Avatar";
 export * from "./dialog/Dialog";
-export * from "./nav/Nav";
+export * from "./nav/NavigationMenu";
 export * from "./steps/Steps";
 export * from "./tooltip/Tooltip";
 export * from "./badge/Badge";
