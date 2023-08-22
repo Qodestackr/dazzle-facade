@@ -4,7 +4,7 @@ export * from "./accordion/Accordion";
 export * from "./checkbox/Checkbox";
 export * from "./file-input/FileInput";
 export * from "./seperator/Seperator";
-export * from "./text-input/TextInput";
+// export * from "./text-input/TextInput";
 export * from "./alert/Alert";
 export * from "./compose-contexts/ComposeContextProviders";
 export * from "./skeleton/Skeleton";

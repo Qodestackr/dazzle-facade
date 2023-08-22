@@ -1,10 +1,23 @@
 import * as React from "react";
 import { cn } from "@core/utils/styles/classnames";
 
+type AllowedInputTypes =
+  | "text"
+  | "password"
+  | "email"
+  | "number"
+  | "date"
+  | "time"
+  | "url"
+  | "tel"
+  | "search"
+  | "color";
+
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   errorMessage?: string;
+  type: AllowedInputTypes
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
