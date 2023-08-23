@@ -1,11 +1,10 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { SetStateAction, useState } from "react";
-
 import AppLayout from "./layouts/AppLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
+    //queries and mutations
     queries: {
       staleTime: 10000,
       cacheTime: 60000,
@@ -31,28 +30,11 @@ const queryClient = new QueryClient({
 
       optimisticResults: true,
     },
+    // mutations: {}
   },
 });
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleNameChange = (value: SetStateAction<string>) => {
-    setName(value);
-  };
-
-  const handleEmailChange = (value: any) => {
-    setEmail(value);
-    // Simulate email validation and set error message if email is invalid
-    if (!value.includes("@")) {
-      setErrorMessage("Please enter a valid email address");
-    } else {
-      setErrorMessage("");
-    }
-  };
-
   return (
     <QueryClientProvider client={queryClient}>
       <AppLayout children={undefined}></AppLayout>

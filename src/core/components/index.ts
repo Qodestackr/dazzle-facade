@@ -36,3 +36,8 @@ export * from "./card/Card";
 export * from "./error-boundary/ErrorBoundary";
 export * from "./select/Select";
 export * from "./text-area/TextArea";
+
+
+// Error Boundary
+
+export {default as ErrorBoundary} from './error-boundary/ErrorBoundary'

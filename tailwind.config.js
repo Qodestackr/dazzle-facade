@@ -18,7 +18,63 @@ module.exports = {
       },
     },
     extend: {
+      //
       colors: {
+        "accent-color": "#008C6B",
+        "neutral-purple": "#9C529D",
+        "neutral-dark": "#1C1C1C",
+        "neutral-gray": "#8C8C8C",
+        "neutral-blue": "#21224E",
+        "neutral-white": "#FCFCFC",
+        "background-main": "#F5F5F5",
+        "success-green": "#008c6b",
+        success: "#289643",
+        "neutral-chart": "#BFBFD9",
+        "chart-group": "#9C529D",
+        "light-gray": "#BFBFD9",
+        "neutral-orange": "#E5352B",
+        "neutral-red": "#E5352B",
+        "neutral-pending": "#FF9F0A",
+        "neutral-critical": "#E5352B",
+        "critical-background": "#FFE7E5",
+        "success-background": "E9FEEE",
+        "neutral-pending-background": "#FFF5E5",
+        "neutral-success": "#289643",
+        "border-color-button": "#1E194",
+        "light-violet": "#9747FF",
+        light: {
+          primary: "#F8FAFC",
+          background: "#F9FAFB",
+          secondary: "#F7FAFC",
+          accent: "#F1F5F9",
+          foreground: "#F9FAFB",
+          destructive: "#F2F2F2",
+          muted: "#F5F5F4",
+          popover: "#F6F6F8",
+          card: "#FAFAFA",
+        },
+        dark: {
+          primary: "#111111",
+          background: "#101010",
+          secondary: "#121212",
+          accent: "#161616",
+          foreground: "#191919",
+          destructive: "#202020",
+          muted: "#2B2B2B",
+          popover: "#1C1C1C",
+          card: "#1A1A1A",
+          // ...
+        },
+        primary: {
+          DEFAULT: "#0077B6", // Primary blue shade
+          dark: "#005A8D", // Darker version of primary
+          light: "#66A0CC", // Lighter version of primary
+        },
+        secondary: {
+          DEFAULT: "#F26D21", // Secondary orange shade
+          dark: "#C35615", // Darker version of secondary
+          light: "#F6935C", // Lighter version of secondary
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -53,6 +109,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      //
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -78,4 +135,25 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+
+  /*
+    daisyui: {
+    themes: [
+      'light',
+      'dark',
+      {
+        dark: {
+          ...require('daisyui/src/colors/themes')['[data-theme=dark]'],
+          'background-color': '#FBF5FF',
+        },
+        light: {
+          ...require('daisyui/src/colors/themes')['[data-theme=light]'],
+          'background-color': '#FBF5FF',
+        },
+      },
+    ],
+    darkTheme: 'light',
+    lightTheme: 'light',
+  },
+  */
 };

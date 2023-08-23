@@ -26,8 +26,8 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({
     const errorHandler = (
       message: string,
       source: string,
-      lineno: number,
-      colno: number,
+      lineNo: number,
+      colNo: number,
       error: Error
     ) => {
       setError(error);

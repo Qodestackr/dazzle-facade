@@ -3,6 +3,7 @@ import { useAppRoutes } from "@core/hooks/";
 
 import { routes } from "../routes/index.routes";
 import Footer from "./common/footer/Footer";
+import Nav from "./common/nav/Nav";
 
 //layouts
 // import { HeaderNav, Footer } from "./layouts";
@@ -17,11 +18,11 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const appRoutes = useAppRoutes(routes);
 
   return (
-    <>
-      {/* <HeaderNav /> */}
+    <div className="bg-light-background">
+      <Nav />
       {appRoutes}
       {children}
-     <Footer />
-    </>
+      <Footer />
+    </div>
   );
 }
