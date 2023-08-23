@@ -30,7 +30,7 @@ function Register() {
       className="w-[60vw] mx-auto"
       onSubmit={handleSubmit(registerSubmitHandler)}
     >
-      <h1>Register</h1>
+      <h1 className="text-3xl">Register into Dazzle</h1>
       <div className="mb-4">
         <Input
           label="Username"

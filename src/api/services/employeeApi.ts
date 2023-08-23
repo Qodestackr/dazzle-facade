@@ -48,7 +48,7 @@ export const useUpdateEmployeeMutation = (
   options?: UseMutationOptions<Employee, any, { id: string; data: Employee }>
 ) => {
   return useMutation<Employee, any, { id: string; data: Employee }>(
-    updateEmployee,
+    updateEmployee as any, // !TODO
     options
   );
 };

@@ -61,7 +61,7 @@ export const useUpdateLeaveRequestMutation = (
   >
 ) => {
   return useMutation<LeaveRequest, any, { id: string; data: LeaveRequest }>(
-    updateLeaveRequest,
+    updateLeaveRequest as any, // !TODO
     options
   );
 };

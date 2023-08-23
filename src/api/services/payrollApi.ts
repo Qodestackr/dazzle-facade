@@ -61,7 +61,7 @@ export const useUpdateSalaryDetailsMutation = (
   >
 ) => {
   return useMutation<SalaryDetails, any, { id: string; data: SalaryDetails }>(
-    updateSalaryDetails,
+    updateSalaryDetails as any, // ! TODO
     options
   );
 };

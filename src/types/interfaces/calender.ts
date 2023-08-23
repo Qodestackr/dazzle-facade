@@ -1,8 +1,8 @@
 export interface ICalendarOptions {
   timeZone: string; // Time zone for the calendar
   showWeekends: boolean;
-  showHolidays: boolean; 
-  showEvents: boolean; 
+  showHolidays: boolean;
+  showEvents: boolean;
   defaultView: "month" | "week" | "day"; // Default view for the calendar (e.g., month, week, day)
   minDate: Date; // Minimum date allowed in the calendar
   maxDate: Date; // Maximum date allowed in the calendar
@@ -11,7 +11,13 @@ export interface ICalendarOptions {
   events: ICalendarEvent[]; // Array of events to be displayed in the calendar
 }
 
-type locationOptions = "ONLINE" | "PHYSICAL" | "OTHER";
+type locationOptions =
+  | "ONLINE"
+  | "PHYSICAL"
+  | "HYBRID"
+  | "REMOTE"
+  | "CUSTOM"
+  | "OTHER";
 
 export interface ICalendarEvent {
   eventId: string;

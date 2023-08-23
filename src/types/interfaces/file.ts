@@ -1,4 +1,33 @@
-type FileType = "pdf" | "docx" | "csv" | "txt" | "jpg" | "png" | "gif" | "xlsx";
+export type FileType =
+  | "pdf"
+  | "docx"
+  | "csv"
+  | "txt"
+  | "jpg"
+  | "jpeg"
+  | "png"
+  | "gif"
+  | "bmp"
+  | "tiff"
+  | "svg"
+  | "webp"
+  | "pptx"
+  | "xls"
+  | "xlsx"
+  | "zip"
+  | "rar"
+  | "7z"
+  | "tar"
+  | "gz"
+  | "mp3"
+  | "wav"
+  | "ogg"
+  | "mp4"
+  | "avi"
+  | "mov"
+  | "wmv"
+  | "flv"
+  | "mkv";
 
 export interface IFile {
   fileName: string;
@@ -17,14 +46,14 @@ export interface IFile {
   getHumanReadableFileSize: () => string;
 }
 
-const FILE_SIZE_ONE_MB = 1024000;
+const FILE_SIZE_FIVE_MB = 5 * 1024 * 1024;
 
 // Example usage:
 const sampleFile: IFile = {
   fileName: "sample.pdf",
-  fileSize: FILE_SIZE_ONE_MB, // 1 MB (in bytes)
+  fileSize: FILE_SIZE_FIVE_MB,
   fileType: "pdf",
-  fileContent: new Blob(), // Blob object representing the file content
+  fileContent: new Blob(),
 
   downloadFile: () => {
     // Example: window.open(sampleFile.getFileURL(), "_blank");

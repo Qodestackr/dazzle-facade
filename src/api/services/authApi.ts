@@ -15,7 +15,6 @@ export interface AuthCredentials {
   subdomain: string;
 }
 
-
 export const register = async (data: AuthCredentials): Promise<void> => {
   await axiosDefaultInstance.post("/api/users/register/", data);
 };
@@ -35,4 +34,3 @@ export const useLoginMutation = (
 ) => {
   return useMutation<void, any, AuthCredentials>(login, options);
 };
-

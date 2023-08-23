@@ -1,4 +1,5 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios from "axios";
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Create a custom Axios instance with default configuration.
@@ -47,12 +48,27 @@ axiosDefaultInstance.interceptors.response.use(
 /**
  * Request interceptor to add an authentication token.
  */
-// axiosDefaultInstance.interceptors.request.use((config: AxiosRequestConfig) => {
-//   const authToken = "getAuthTokenFromLocalStorage()";
+axiosDefaultInstance.interceptors.request.use(
+  (config: AxiosRequestConfig | any) => {
+    const authToken = getAuthTokenFromLocalStorage(); // Replace with your logic
 
-//   if (authToken) {
-//     config.headers["Authorization"] = `Bearer ${authToken}`;
-//   }
+    if (authToken) {
+      if (!config.headers) {
+        config.headers = {}; // Initialize headers if not defined
+      }
+      config.headers["Authorization"] = `Bearer ${authToken}`;
+    }
 
-//   return config;
-// });
+    return config;
+  }
+);
+
+/**
+ * Get authentication token from local storage.
+ * @returns Authentication token or null if not available.
+ */
+function getAuthTokenFromLocalStorage(): string | null {
+  // Implement your logic to retrieve the token from local storage
+  // Return the token or null if not available
+  return localStorage.getItem("authToken");
+}
