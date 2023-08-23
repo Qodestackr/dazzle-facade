@@ -5,6 +5,7 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDown } from "lucide-react";
 
 import { cn } from "@core/utils/styles/classnames";
+import { getAbsoluteFilePath } from "@/core/utils/files";
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -55,6 +56,9 @@ const AccordionContent = React.forwardRef<
     <div className="pb-4 pt-0">{children}</div>
   </AccordionPrimitive.Content>
 ));
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+
+const _displayName = AccordionPrimitive.Content.displayName;
+AccordionContent.displayName = _displayName
+console.log(getAbsoluteFilePath(_displayName))
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

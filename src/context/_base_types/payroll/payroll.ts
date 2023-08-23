@@ -1,25 +1,34 @@
-export const ADD_PAYROLL = "ADD_PAYROLL";
-export const ADD_PAYROLL_LOADING = "ADD_PAYROLL_LOADING";
-export const ADD_PAYROLL_SUCCESS = "ADD_PAYROLL_SUCCESS";
-export const ADD_PAYROLL_FAILED = "ADD_PAYROLL_FAILED";
+const createActionTypes = (baseType: any) => ({
+  LOADING: `${baseType}_LOADING`,
+  SUCCESS: `${baseType}_SUCCESS`,
+  FAILED: `${baseType}_FAILED`,
+});
 
-// pending | completed | rejected?
-export const APPROVE_PAYROLL = "APPROVE_PAYROLL";
-export const APPROVE_PAYROLL_LOADING = "APPROVE_PAYROLL_LOADING";
-export const APPROVE_PAYROLL_SUCCESS = "APPROVE_PAYROLL_SUCCESS";
-export const APPROVE_PAYROLL_FAILED = "APPROVE_PAYROLL_FAILED";
+export const ADD_PAYROLL = createActionTypes("ADD_PAYROLL");
+export const APPROVE_PAYROLL = createActionTypes("APPROVE_PAYROLL");
+export const LOAD_PAYROLL = createActionTypes("LOAD_PAYROLL");
+export const UPDATE_PAYROLL = createActionTypes("UPDATE_PAYROLL");
+export const DELETE_PAYROLL = createActionTypes("DELETE_PAYROLL");
 
-export const LOAD_PAYROLL = "LOAD_PAYROLL";
-export const LOAD_PAYROLL_LOADING = "LOAD_PAYROLL_LOADING";
-export const LOAD_PAYROLL_SUCCESS = "LOAD_PAYROLL_SUCCESS";
-export const LOAD_PAYROLL_FAILED = "LOAD_PAYROLL_FAILED";
+/*
+// To use these action types to create action creators:
+const createLoadingAction = (type) => ({
+  type: type.LOADING,
+});
 
-export const UPDATE_PAYROLL = "UPDATE_PAYROLL";
-export const UPDATE_PAYROLL_LOADING = "UPDATE_PAYROLL_LOADING";
-export const UPDATE_PAYROLL_SUCCESS = "UPDATE_PAYROLL_SUCCESS";
-export const UPDATE_PAYROLL_FAILED = "UPDATE_PAYROLL_FAILED";
+const createSuccessAction = (type, data) => ({
+  type: type.SUCCESS,
+  payload: data,
+});
 
-export const DELETE_PAYROLL = "UPDATE_PAYROLL";
-export const DELETE_PAYROLL_LOADING = "DELETE_PAYROLL_LOADING";
-export const DELETE_PAYROLL_SUCCESS = "DELETE_PAYROLL_SUCCESS";
-export const DELETE_PAYROLL_FAILED = "DELETE_PAYROLL_FAILED";
+const createFailedAction = (type, error) => ({
+  type: type.FAILED,
+  payload: error,
+});
+
+// Usage example
+export const addPayrollLoading = createLoadingAction(ADD_PAYROLL);
+export const addPayrollSuccess = createSuccessAction(ADD_PAYROLL);
+export const addPayrollFailed = createFailedAction(ADD_PAYROLL);
+
+*/

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "@core/utils/styles/classnames";
+import { getAbsoluteFilePath } from "@/core/utils/files";
 
 type AllowedInputTypes =
   | "text"
@@ -57,6 +58,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
-
+const InputDisplayName = "Input";
+Input.displayName = InputDisplayName;
+console.log(getAbsoluteFilePath(InputDisplayName));
 export { Input };

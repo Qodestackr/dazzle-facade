@@ -1,10 +1,14 @@
 import React from "react";
-import { useSettingsContext, SettingsContextProvider } from "../../../context/SettingsContext";
+import {
+  useSettingsContext,
+  SettingsContextProvider,
+} from "@/context/SettingsContext";
 import useSafeContext from "./useSafeContext";
 
 function App() {
   const settings = useSafeContext(
-    useSettingsContext,
+    null as any,
+    // useSettingsContext,
     "SettingsContext not available."
   );
 
