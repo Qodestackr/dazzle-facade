@@ -6,7 +6,7 @@ import Nav from "./common/nav/Nav";
 import DashboardSidebar from "./dashboard-layouts/sidebar/DashboardSidebar";
 
 type AppLayoutProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export default function AppLayout({ children }: AppLayoutProps) {

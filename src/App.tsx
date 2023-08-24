@@ -37,7 +37,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AppLayout children={undefined}></AppLayout>
+      <AppLayout></AppLayout>
     </QueryClientProvider>
   );
 }
