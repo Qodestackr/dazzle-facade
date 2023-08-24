@@ -17,6 +17,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className="bg-light-background">
       {/* {isAuthenticated ? <DashboardSidebar /> : <Nav />} */}
+      {/* <Nav /> */}
 
       {appRoutes}
       {children}
