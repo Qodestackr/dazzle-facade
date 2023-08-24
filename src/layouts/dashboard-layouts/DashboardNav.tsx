@@ -16,7 +16,7 @@ export default function DashboardNav() {
   const allowNotifications = false;
   const isAuthenticated = true;
   return (
-    <div className="bg-primary py-4 flex justify-between items-center mb-4">
+    <div className="bg-primary py-4 flex justify-between items-center mb-2">
       <Badge
         variant={"outline"}
         className="py-2 text-white bg-red-400 hover:bg-red-200

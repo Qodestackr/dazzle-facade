@@ -17,7 +17,7 @@ const billingHistory = [
 export default function Billing() {
   return (
     <section className="mb-8">
-      <div className="flex rounded-xs shadow-lg bg-blue-500 p-6 text-white">
+      <div className="flex rounded-xs shadow-lg bg-[#62A446] p-4 text-white">
         <div className="w-1/2 pr-6">
           <p className="font-semibold text-lg mb-2">
             Your subscription details appear here on payment
@@ -37,12 +37,12 @@ export default function Billing() {
       </div>
 
       {/* Billing History */}
-      {/* <div className="mt-6">
+      <div className="mt-6">
         <h2 className="text-xl font-semibold mb-4">Billing History</h2>
         {billingHistory.map((item, index) => (
           <BillingHistoryItem key={index} {...item} />
         ))}
-      </div> */}
+      </div>
       {/* End Billing History */}
     </section>
   );

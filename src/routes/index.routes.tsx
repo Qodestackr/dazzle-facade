@@ -35,6 +35,7 @@ export const routes = [
           // Add more nested routes for payments here
         ],
       },
+      { path: "wallet", element: <UnderConstruction /> },
       { path: "messages", element: <UnderConstruction /> },
       { path: "departments", element: <UnderConstruction /> },
       { path: "events", element: <UnderConstruction /> },

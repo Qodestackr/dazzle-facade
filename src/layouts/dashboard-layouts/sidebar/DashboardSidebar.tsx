@@ -12,27 +12,37 @@ import {
   Receipt as BillingIcon,
   Lock as AdminActionOnlyIcon,
   Banknote as PaymentIcon,
+  LogOutIcon
 } from "lucide-react";
 
 const sidebarItems = [
-  { route: "/", name: "Home", icon: HomeIcon },
-  { route: "/payments", name: "Payments", icon: PaymentIcon },
+  { route: "/dashboard/", name: "Home", icon: HomeIcon },
+  { route: "/dashboard/payments", name: "Payments", icon: PaymentIcon },
 ];
 
 const adminItems = [
-  { route: "/departments", name: "Departments", icon: DepartmentsIcon },
-  { route: "/employees", name: "Employees", icon: EmployeesIcon },
-  { route: "/events", name: "Events", icon: EventIcon },
-  { route: "/wallet", name: "Wallet", icon: Wallet },
-  { route: "/payroll", name: "Payroll", icon: PayrollIcon },
-  { route: "/billing", name: "Billing", icon: BillingIcon },
-  { route: "/admin-action", name: "Admin Action", icon: AdminActionOnlyIcon },
+  {
+    route: "/dashboard/departments",
+    name: "Departments",
+    icon: DepartmentsIcon,
+  },
+  { route: "/dashboard/employees", name: "Employees", icon: EmployeesIcon },
+  { route: "/dashboard/events", name: "Events", icon: EventIcon },
+  { route: "/dashboard/wallet", name: "Wallet", icon: Wallet },
+  { route: "/dashboard/payroll", name: "Payroll", icon: PayrollIcon },
+  { route: "/dashboard/billing", name: "Billing", icon: BillingIcon },
+  // {
+  //   route: "/dashboard/",
+  //   name: "Admin Action",
+  //   icon: AdminActionOnlyIcon,
+  // },
+  { route:"/login", name: "Logout", icon: LogOutIcon}
 ];
 
 export default function DashboardSidebar() {
   return (
     <aside className="bg-gray-800 text-white w-1/4 min-h-screen p-4">
-      <nav>
+      <nav className="max-w-[240px]">
         <ul>
           {sidebarItems.map((item, index) => (
             <li key={index} className="mb-4">
