@@ -9,7 +9,7 @@ function BillingHistoryItem({
   status,
 }: any) {
   return (
-    <div className="flex rounded-lg shadow-lg bg-white p-6 mb-4">
+    <div className="flex rounded-xs shadow-lg bg-white p-6 mb-4">
       <div className="w-1/6">
         <p className="font-semibold">{invoiceNo}</p>
       </div>

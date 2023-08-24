@@ -45,8 +45,8 @@ export const routes = [
       { path: "backups", element: <UnderConstruction /> },
     ],
   },
-  // {
-  //   path: "/uc",
-  //   element: <UnderConstruction />,
-  // },
+  {
+    path: "/*",
+    element: <UnderConstruction />,
+  },
 ];
