@@ -19,10 +19,7 @@ export const routes = [
       {
         path: "billing",
         element: <Billing />,
-        children: [
-          { path: "settings", element: <UnderConstruction /> },
-          // Add more nested routes for billing here
-        ],
+        children: [{ path: "settings", element: <UnderConstruction /> }],
       },
       {
         path: "payments",
