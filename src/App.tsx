@@ -51,6 +51,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        {/*  */}
         <Route path="/dashboard" element={<DashboardHome />}>
           <Route path="employees" element={<UnderConstruction />} />
           <Route path="billing" element={<Billing />}>
@@ -62,12 +64,21 @@ function App() {
             <Route path="statutory-payments" element={<UnderConstruction />} />
             <Route path="account-statement" element={<UnderConstruction />} />
           </Route>
-          {/* Add more nested routes for dashboard */}
+          <Route path="wallet" element={<UnderConstruction />} />
+          <Route path="messages" element={<UnderConstruction />} />
+          <Route path="departments" element={<UnderConstruction />} />
+          <Route path="events" element={<UnderConstruction />} />
+          <Route path="notice-board" element={<UnderConstruction />} />
+          <Route path="projects" element={<UnderConstruction />} />
+          <Route path="payroll" element={<UnderConstruction />} />
+          <Route path="documents" element={<UnderConstruction />} />
+          <Route path="backups" element={<UnderConstruction />} />
         </Route>
-        <Route path="*" element={<UnderConstruction />} />
+        {/*  */}
+
+        <Route path="/*" element={<UnderConstruction />} />
       </Routes>
 
-      {/* Add React Query Devtools if you want to use it */}
       <ReactQueryDevtools />
     </QueryClientProvider>
   );
