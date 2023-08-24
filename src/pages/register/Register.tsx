@@ -4,6 +4,7 @@ import { Button } from "@/core/components";
 
 import { useSignUpMutation } from "@api/services/authApi";
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 function Register() {
   const {
@@ -181,6 +182,10 @@ function Register() {
       <Button type="submit">
         {signUpMutation.isLoading ? "Registering..." : "Register"}
       </Button>
+
+      <div className="my-3">
+        Or <Link to="/login">Login instead</Link>
+      </div>
     </form>
   );
 }

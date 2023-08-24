@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "@core/hooks";
+
 import { Input } from "@core/components/input/Input";
 import { Button } from "@/core/components";
 
@@ -14,13 +16,19 @@ function Login() {
   } = useForm();
 
   const signUpMutation = useSignUpMutation();
+  const navigate = useNavigate(); //
 
-  const registerSubmitHandler = async (data: any) => {
+  const loginSubmitHandler = async (data: any) => {
     try {
       console.log(data);
-      await signUpMutation.mutateAsync(data);
+      // await signUpMutation.mutateAsync(data);
 
       console.log("User registered successfully");
+      /*** */
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 2000);
+      /**** */
     } catch (error) {
       console.error("Registration error:", error);
     }
@@ -29,7 +37,7 @@ function Login() {
   return (
     <form
       className="w-[40vw] mx-auto"
-      onSubmit={handleSubmit(registerSubmitHandler)}
+      onSubmit={handleSubmit(loginSubmitHandler)}
     >
       <h1 className="text-3xl">Register into Dazzle</h1>
       <div className="mb-4">
@@ -62,6 +70,10 @@ function Login() {
       <Button type="submit">
         {signUpMutation.isLoading ? "..." : "Login"}
       </Button>
+
+      <div className="my-3">
+        Or <Link to="/register">Register instead</Link>
+      </div>
     </form>
   );
 }

@@ -1,28 +1,26 @@
 import React from "react";
 import { useAppRoutes } from "@core/hooks/";
-
 import { routes } from "../routes/index.routes";
 import Footer from "./common/footer/Footer";
 import Nav from "./common/nav/Nav";
-
-//layouts
-// import { HeaderNav, Footer } from "./layouts";
+import DashboardSidebar from "./dashboard-layouts/sidebar/DashboardSidebar";
 
 type AppLayoutProps = {
   children: React.ReactNode;
 };
 
 export default function AppLayout({ children }: AppLayoutProps) {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   const appRoutes = useAppRoutes(routes);
 
   return (
     <div className="bg-light-background">
-      <Nav />
+      {/* {isAuthenticated ? <DashboardSidebar /> : <Nav />} */}
+
       {appRoutes}
       {children}
-      <Footer />
+      {/* {isAuthenticated ? null : <Footer />} */}
     </div>
   );
 }
