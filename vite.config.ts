@@ -17,4 +17,7 @@ export default defineConfig({
       { find: "@types", replacement: "/src/types" },
     ],
   },
+  build: {
+    outDir: "build",
+  },
 });
