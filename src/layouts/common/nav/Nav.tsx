@@ -26,6 +26,12 @@ const Nav = () => {
         <NavLink to="/login" className="text-white">
           Login
         </NavLink>
+
+        <NavLink to="/dashboard" className="text-green-800">
+          <span className="text-green-400  font-extralight font-sans">
+            DASHBOARD TEST
+          </span>
+        </NavLink>
       </div>
     </nav>
   );
