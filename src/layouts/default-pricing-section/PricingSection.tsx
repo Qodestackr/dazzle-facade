@@ -60,21 +60,4 @@ const PricingSection: React.FC = () => {
   );
 };
 
-// const pricingOptions: PricingCardProps[] = [
-//   {
-//     plan: "Lite",
-//     price: "$12",
-//     billing: "/month",
-//     teams: "1 Team",
-//     agents: "1 Installed Agent",
-//     feedback: "Real Time Feedback",
-//     support: "Video Support",
-//     analytics: "Reporting Tools and Analytics",
-//     collaboration: "Team Collaboration Tools",
-//     features: "Authorized updated features",
-//     action: "BOOK FREE DEMO",
-//   },
-//   // Add other pricing options
-// ];
-
 export default PricingSection;

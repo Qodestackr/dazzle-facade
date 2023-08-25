@@ -9,7 +9,6 @@ import {
   SearchIcon,
 } from "lucide-react";
 
-import { Outlet } from "react-router-dom";
 import { Badge } from "@/core/components";
 
 export default function DashboardNav() {

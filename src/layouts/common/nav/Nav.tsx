@@ -1,47 +1,29 @@
-import React from "react";
-import { ChevronDown } from "lucide-react";
-
-import { cn } from "@core/utils";
+import { Link } from "react-router-dom";
+import { NAV_DEFAULT_LINKS } from "@/data/links";
 
 const Nav = () => {
   return (
     <nav className="flex items-center justify-evenly py-8 text-white bg-slate-600">
       <div className="text-xl font-semibold">Dazzle HR</div>
       <div className="flex space-x-4">
-        <NavLink to="/" className="text-white">
-          Home
-        </NavLink>
-        <NavLink to="/about" className="text-white">
-          About
-        </NavLink>
-        <NavLink to="/services" className="text-white">
-          Services
-        </NavLink>
-        <NavLink to="/contact" className="text-white">
-          Contact
-        </NavLink>
-        <NavLink to="/register" className="text-white">
-          Register
-        </NavLink>
-        <NavLink to="/login" className="text-white">
-          Login
-        </NavLink>
-
-        <NavLink to="/dashboard" className="text-green-800">
-          <span className="text-green-400  font-extralight font-sans">
-            DASHBOARD TEST
-          </span>
-        </NavLink>
+        {NAV_DEFAULT_LINKS.map((link, index) => (
+          <NavLink key={index} to={link.to} className={link.className}>
+            {link.text}
+          </NavLink>
+        ))}
       </div>
     </nav>
   );
 };
 
-const NavLink = ({ to, children }: any) => {
+const NavLink = ({ to, children, className }: any) => {
   return (
-    <a href={to} className="hover:text-primary transition-colors">
+    <Link
+      to={to}
+      className={`hover:text-primary transition-colors ${className}`}
+    >
       {children}
-    </a>
+    </Link>
   );
 };
 

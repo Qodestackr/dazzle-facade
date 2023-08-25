@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "@core/components/input/Input";
 import { Button } from "@/core/components";

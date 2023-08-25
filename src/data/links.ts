@@ -76,3 +76,13 @@ export const PRODUCTS_FOOTER_LINKS = [
     link: "/leaves-and-time-off",
   },
 ];
+
+export const NAV_DEFAULT_LINKS = [
+  { to: "/", text: "Home" },
+  { to: "/about", text: "About" },
+  { to: "/services", text: "Services" },
+  { to: "/contact", text: "Contact" },
+  { to: "/register", text: "Register" },
+  { to: "/login", text: "Login" },
+  { to: "/dashboard", text: "Dashboard Test", className: "text-green-800" },
+];

@@ -17,6 +17,7 @@ const AccordionItem = React.forwardRef<
     {...props}
   />
 ));
+
 AccordionItem.displayName = "AccordionItem";
 
 const AccordionTrigger = React.forwardRef<
@@ -56,7 +57,7 @@ const AccordionContent = React.forwardRef<
 ));
 
 const _displayName = AccordionPrimitive.Content.displayName;
-AccordionContent.displayName = _displayName
-console.log(getAbsoluteFilePath(_displayName))
+AccordionContent.displayName = _displayName;
+console.log(getAbsoluteFilePath(_displayName));
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
