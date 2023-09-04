@@ -78,8 +78,7 @@ export const PRODUCTS_FOOTER_LINKS = [
 ];
 
 export const NAV_DEFAULT_LINKS = [
-  { to: "/", text: "Home" },
-  { to: "/about", text: "About" },
+  { to: "/pricing", text: "Pricing" },
   { to: "/services", text: "Services" },
   { to: "/contact", text: "Contact" },
   { to: "/register", text: "Register" },
@@ -88,5 +87,28 @@ export const NAV_DEFAULT_LINKS = [
     to: "/dashboard",
     text: "DASHBOARD DEMO",
     className: "font-link_satisfy text-green-300",
+  },
+];
+
+export const MOBILE_NAV_LINKS = [
+  {
+    to: "/services",
+    text: "Services",
+    className: "mx-4 bg-white text-slate-600",
+  },
+  {
+    to: "/register",
+    text: "Register",
+    className: "mx-4 bg-white text-slate-600",
+  },
+  {
+    to: "/login",
+    text: "Login",
+    className: "mx-4 bg-white text-slate-600",
+  },
+  {
+    to: "/dashboard",
+    text: "DASHBOARD DEMO",
+    className: "mx-4 font-link_satisfy text-green-300",
   },
 ];

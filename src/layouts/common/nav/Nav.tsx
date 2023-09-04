@@ -1,50 +1,56 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@core/components";
-
+import { Button } from "@core/components";
 import { useWindowSize } from "@core/hooks";
-import { NAV_DEFAULT_LINKS } from "@/data/links";
+import { NAV_DEFAULT_LINKS, MOBILE_NAV_LINKS } from "@/data/links";
 
 const Nav = () => {
   const { width } = useWindowSize();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <nav
-      className={`py-8 text-white bg-slate-600 ${
+      className={`py-8 md:text-white bg-slate-600 ${
         width <= 640 ? "flex-col" : "flex items-center justify-around"
       }`}
     >
-      <div className="text-xl font-semibold">Dazzle HR</div>
-      <div className={`flex space-x-4 ${width <= 640 ? "mt-4" : "mt-0"}`}>
-        {NAV_DEFAULT_LINKS.map((link, index) => (
-          <NavLink key={index} to={link.to} className={link.className}>
-            {link.text}
-          </NavLink>
-        ))}
+      <div className="text-xl font-semibold">
+        <NavLink to="/">Dazzle HR</NavLink>
       </div>
-      {width <= 640 && <Menu />}{" "}
-      {/*
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink>Link</NavigationMenuLink>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-      */}
+      <div className={`flex space-x-4 ${width <= 640 ? "mt-4" : "mt-0"}`}>
+        {width <= 640 ? (
+          <Menu onClick={toggleMenu} />
+        ) : (
+          NAV_DEFAULT_LINKS.map((link, index) => (
+            <NavLink key={index} to={link.to} className={link.className}>
+              {link.text}
+            </NavLink>
+          ))
+        )}
+      </div>
+      {width <= 640 && menuOpen && (
+        <div className="flex flex-col space-y-2">
+          {MOBILE_NAV_LINKS.map((link, index) => (
+            <Button
+              key={index}
+              variant="default" // You can choose the appropriate variant here
+              size="default" // You can choose the appropriate size here
+              className={link.className}
+              onClick={() => {
+                // Handle the click action, e.g., navigate to the link
+                window.location.href = link.to;
+              }}
+            >
+              {link.text}
+            </Button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
