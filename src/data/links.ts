@@ -84,5 +84,9 @@ export const NAV_DEFAULT_LINKS = [
   { to: "/contact", text: "Contact" },
   { to: "/register", text: "Register" },
   { to: "/login", text: "Login" },
-  { to: "/dashboard", text: "Dashboard Test", className: "text-green-800" },
+  {
+    to: "/dashboard",
+    text: "DASHBOARD DEMO",
+    className: "font-link_satisfy text-green-300",
+  },
 ];

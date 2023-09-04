@@ -22,11 +22,6 @@ import {
 export default function Footer() {
   const { width } = useWindowSize();
 
-  const isMobileScreen = () => {
-    return window.innerWidth <= 640;
-  };
-
-  console.log(width);
   return (
     <footer className="w-[80vw] mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -49,7 +44,7 @@ export default function Footer() {
         </div>
         {/*  */}
         <div className="flex gap-4 justify-between items-center">
-          {width <= 640 ? ( // Check if it's a mobile screen
+          {width <= 640 ? (
             <div className=" w-full flex flex-col justify-center items-center">
               <h2>PRIMARY</h2>
               <ul className="w-full">

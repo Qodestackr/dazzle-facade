@@ -117,6 +117,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        roboto: ["Roboto", "sans-serif"],
+        link_satisfy: ["Satisfy", "cursive"],
       },
       keyframes: {
         "accordion-down": {
