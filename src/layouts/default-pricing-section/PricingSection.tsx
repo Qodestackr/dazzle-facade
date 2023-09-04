@@ -50,7 +50,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
 const PricingSection: React.FC = () => {
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="py-12">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {pricingOptions.map((option, index) => (
           <PricingCard key={index} {...option} />

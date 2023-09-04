@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
+// <X />
 import { Button } from "@core/components";
 import { useWindowSize } from "@core/hooks";
 import { NAV_DEFAULT_LINKS, MOBILE_NAV_LINKS } from "@/data/links";
@@ -15,7 +16,7 @@ const Nav = () => {
 
   return (
     <nav
-      className={`py-8 md:text-white bg-slate-600 ${
+      className={`py-8 text-white bg-slate-600 ${
         width <= 640 ? "flex-col" : "flex items-center justify-around"
       }`}
     >
