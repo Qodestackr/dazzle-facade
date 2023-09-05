@@ -51,17 +51,17 @@ export const businessTypeOptions: IBusinessTypeOption[] = [
       "Companies involved in real estate development and property management.",
     optionId: "real_estate",
   },
-  {
-    name: "Hospitality",
-    description:
-      "Companies providing lodging, dining, and entertainment services.",
-    optionId: "hospitality",
-  },
-  {
-    name: "Healthcare",
-    description: "Companies involved in medical and healthcare services.",
-    optionId: "healthcare",
-  },
+  // {
+  //   name: "Hospitality",
+  //   description:
+  //     "Companies providing lodging, dining, and entertainment services.",
+  //   optionId: "hospitality",
+  // },
+  // {
+  //   name: "Healthcare",
+  //   description: "Companies involved in medical and healthcare services.",
+  //   optionId: "healthcare",
+  // },
   {
     name: "Security Firm",
     description: "Companies providing security and protection services.",
@@ -72,48 +72,48 @@ export const businessTypeOptions: IBusinessTypeOption[] = [
     description: "Companies engaged in educational services and institutions.",
     optionId: "education",
   },
-  {
-    name: "Retail",
-    description: "Companies involved in retail and consumer goods.",
-    optionId: "retail",
-  },
-  {
-    name: "Media & Entertainment",
-    description: "Companies providing media and entertainment services.",
-    optionId: "media_entertainment",
-  },
-  {
-    name: "Automotive",
-    description: "Companies involved in automotive manufacturing and services.",
-    optionId: "automotive",
-  },
-  {
-    name: "Energy & Utilities",
-    description: "Companies providing energy and utility services.",
-    optionId: "energy_utilities",
-  },
-  {
-    name: "Fashion & Apparel",
-    description:
-      "Companies engaged in fashion and apparel manufacturing and retail.",
-    optionId: "fashion_apparel",
-  },
-  {
-    name: "Manufacturing",
-    description: "Companies involved in various manufacturing processes.",
-    optionId: "manufacturing",
-  },
-  {
-    name: "Pharmaceutical",
-    description: "Companies engaged in pharmaceutical research and production.",
-    optionId: "pharmaceutical",
-  },
-  {
-    name: "Environmental Services",
-    description:
-      "Companies providing environmental and sustainability services.",
-    optionId: "environmental_services",
-  },
+  // {
+  //   name: "Retail",
+  //   description: "Companies involved in retail and consumer goods.",
+  //   optionId: "retail",
+  // },
+  // {
+  //   name: "Media & Entertainment",
+  //   description: "Companies providing media and entertainment services.",
+  //   optionId: "media_entertainment",
+  // },
+  // {
+  //   name: "Automotive",
+  //   description: "Companies involved in automotive manufacturing and services.",
+  //   optionId: "automotive",
+  // },
+  // {
+  //   name: "Energy & Utilities",
+  //   description: "Companies providing energy and utility services.",
+  //   optionId: "energy_utilities",
+  // },
+  // {
+  //   name: "Fashion & Apparel",
+  //   description:
+  //     "Companies engaged in fashion and apparel manufacturing and retail.",
+  //   optionId: "fashion_apparel",
+  // },
+  // {
+  //   name: "Manufacturing",
+  //   description: "Companies involved in various manufacturing processes.",
+  //   optionId: "manufacturing",
+  // },
+  // {
+  //   name: "Pharmaceutical",
+  //   description: "Companies engaged in pharmaceutical research and production.",
+  //   optionId: "pharmaceutical",
+  // },
+  // {
+  //   name: "Environmental Services",
+  //   description:
+  //     "Companies providing environmental and sustainability services.",
+  //   optionId: "environmental_services",
+  // },
   {
     name: "Consulting",
     description:

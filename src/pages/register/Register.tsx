@@ -2,6 +2,16 @@ import { useForm } from "react-hook-form";
 import { Input } from "@core/components/input/Input";
 import { Button } from "@/core/components";
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@core/components"
+
+import { businessTypeOptions } from "../../types/interfaces/businessType"
+
 import { useSignUpMutation } from "@api/services/authApi";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -96,16 +106,25 @@ function Register() {
         )}
       </div>
       <div className="mb-4">
-        <Input
-          label="Industry"
-          type="text"
-          placeholder="Enter your industry"
-          {...register("industry", { required: "Industry is required" })}
-        />
+        <label htmlFor="industry">Select Industry</label>
+        <Select>
+          <SelectTrigger>
+            <SelectValue placeholder="Select Industry" />
+          </SelectTrigger>
+          <SelectContent>
+            {businessTypeOptions.map((option) => (
+              <SelectItem key={option.optionId} value={option.name}>
+                {option.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
         {errors.industry && (
           <p className="text-red-500">{errors.industry.message as ReactNode}</p>
         )}
       </div>
+
+
       <div className="mb-4">
         <Input
           label="Employee Count"
@@ -179,6 +198,7 @@ function Register() {
           </p>
         )}
       </div>
+
       <Button type="submit">
         {signUpMutation.isLoading ? "Registering..." : "Register"}
       </Button>
@@ -186,6 +206,8 @@ function Register() {
       <div className="my-3">
         Or <Link to="/login">Login instead</Link>
       </div>
+
+
     </form>
   );
 }

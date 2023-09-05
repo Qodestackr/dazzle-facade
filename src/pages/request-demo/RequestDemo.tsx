@@ -4,6 +4,16 @@ import { useNavigate } from "@core/hooks";
 import { Input } from "@core/components/input/Input";
 import { Button } from "@/core/components";
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@core/components"
+
+import { businessTypeOptions } from "../../types/interfaces/businessType"
+
 import { useSignUpMutation } from "@api/services/authApi";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
@@ -99,6 +109,24 @@ function RequestDemo() {
               </p>
             )}
           </div>
+
+          <div className="mb4">
+            <label htmlFor="SelectIndustry">Select Industry</label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="E.g Insurance" />
+              </SelectTrigger>
+              <SelectContent>
+                {businessTypeOptions.map((option) => (
+                  <SelectItem key={option.optionId} value={option.name}>
+                    {option.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+
 
           <div className="mb-2">
             <Input
