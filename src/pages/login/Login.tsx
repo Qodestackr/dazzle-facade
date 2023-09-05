@@ -36,7 +36,7 @@ function Login() {
 
   return (
     <form
-      className="w-[40vw] mx-auto"
+      className="w-10/12 md:w-8/12 mx-auto"
       onSubmit={handleSubmit(loginSubmitHandler)}
     >
       <h1 className="text-3xl">Register into Dazzle</h1>
