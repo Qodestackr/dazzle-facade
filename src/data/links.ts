@@ -84,7 +84,7 @@ export const NAV_DEFAULT_LINKS = [
   { to: "/register", text: "Register" },
   { to: "/login", text: "Login" },
   {
-    to: "/dashboard",
+    to: "/dashboard/payroll",
     text: "DASHBOARD DEMO",
     className: "font-link_satisfy text-green-300",
   },
@@ -107,7 +107,7 @@ export const MOBILE_NAV_LINKS = [
     className: "mx-4 bg-white text-slate-600",
   },
   {
-    to: "/dashboard",
+    to: "/dashboard/payroll",
     text: "DASHBOARD DEMO",
     className: "mx-4 font-link_satisfy text-green-300",
   },
