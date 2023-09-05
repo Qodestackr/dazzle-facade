@@ -24,6 +24,8 @@ function DashboardHome() {
 
       <div className="bg-gray-100">
         <DashboardNav />
+        <h3 className="text-2xl">Welcome Back</h3>
+        {/* Cannot remove the Outlet yet I need render some defaults... Show the way */}
         <div className="shadow-md rounded-md">
           <Outlet />
         </div>

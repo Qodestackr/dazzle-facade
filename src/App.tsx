@@ -3,13 +3,21 @@ import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools"; //y Devtools
 
-import { UnderConstruction } from "@core/components";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+  UnderConstruction,
+} from "@core/components";
 import Register from "@pages/register/Register";
 import Login from "@pages/login/Login";
 import Home from "@/pages/home/Home";
 import ForgotPassword from "@/pages/forgot-password/ForgotPassword";
 import DashboardHome from "@/pages/dashboard/DashboardHome";
 import Billing from "@/pages/dashboard/screens/billing/Billing";
+import RequestDemo from "./pages/request-demo/RequestDemo";
+import { TableDemo } from "./core/components/table/TableTest";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,6 +55,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
+        <Route path="/demo-request" element={<RequestDemo />} />
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -54,25 +63,28 @@ function App() {
 
         {/*  */}
         <Route path="/dashboard" element={<DashboardHome />}>
-          <Route path="employees" element={<UnderConstruction />} />
+          <Route
+            path="employees"
+            element={/**<UnderConstruction /> */ <TableDemo />}
+          />
           <Route path="billing" element={<Billing />}>
             <Route path="settings" element={<UnderConstruction />} />
           </Route>
-          <Route path="payments" element={<UnderConstruction />}>
-            <Route path="balances" element={<UnderConstruction />} />
-            <Route path="bulk-payments" element={<UnderConstruction />} />
-            <Route path="statutory-payments" element={<UnderConstruction />} />
-            <Route path="account-statement" element={<UnderConstruction />} />
+          <Route path="payments" element={<TableDemo />}>
+            <Route path="balances" element={<TableDemo />} />
+            <Route path="bulk-payments" element={<TableDemo />} />
+            <Route path="statutory-payments" element={<TableDemo />} />
+            <Route path="account-statement" element={<TableDemo />} />
           </Route>
-          <Route path="wallet" element={<UnderConstruction />} />
-          <Route path="messages" element={<UnderConstruction />} />
-          <Route path="departments" element={<UnderConstruction />} />
-          <Route path="events" element={<UnderConstruction />} />
-          <Route path="notice-board" element={<UnderConstruction />} />
-          <Route path="projects" element={<UnderConstruction />} />
-          <Route path="payroll" element={<UnderConstruction />} />
-          <Route path="documents" element={<UnderConstruction />} />
-          <Route path="backups" element={<UnderConstruction />} />
+          <Route path="wallet" element={<TableDemo />} />
+          <Route path="messages" element={<TableDemo />} />
+          <Route path="departments" element={<TableDemo />} />
+          <Route path="events" element={<TableDemo />} />
+          <Route path="notice-board" element={<TableDemo />} />
+          <Route path="projects" element={<TableDemo />} />
+          <Route path="payroll" element={<TableDemo />} />
+          <Route path="documents" element={<TableDemo />} />
+          <Route path="backups" element={<TableDemo />} />
         </Route>
         {/*  */}
 

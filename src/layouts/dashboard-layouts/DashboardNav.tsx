@@ -21,7 +21,7 @@ export default function DashboardNav() {
         className="py-2 text-white bg-red-400 hover:bg-red-200
              hover:text-white hover:cursor-pointer"
       >
-        Plan Activation is Required
+        Plan Activation Required
       </Badge>
 
       <div className="flex items-center">

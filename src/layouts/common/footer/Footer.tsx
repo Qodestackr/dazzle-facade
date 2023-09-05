@@ -46,7 +46,6 @@ export default function Footer() {
         <div className="flex gap-4 justify-between items-center">
           {width <= 640 ? (
             <div className=" w-full flex flex-col justify-center items-center">
-              <h2>PRIMARY</h2>
               <ul className="w-full">
                 <li>
                   <Accordion type="multiple">
@@ -66,7 +65,9 @@ export default function Footer() {
                     </AccordionItem>
 
                     <AccordionItem value="item-2">
-                      <AccordionTrigger>Product Links</AccordionTrigger>
+                      <AccordionTrigger className="font-semibold">
+                        Product Links
+                      </AccordionTrigger>
                       <AccordionContent>
                         <ul>
                           {PRODUCTS_FOOTER_LINKS.map((link) => (
@@ -79,7 +80,9 @@ export default function Footer() {
                     </AccordionItem>
 
                     <AccordionItem value="item-3">
-                      <AccordionTrigger>Service Links</AccordionTrigger>
+                      <AccordionTrigger className="font-semibold">
+                        Built For You
+                      </AccordionTrigger>
                       <AccordionContent>
                         <ul>
                           {SERVICE_FOOTER_LINKS.map((link) => (

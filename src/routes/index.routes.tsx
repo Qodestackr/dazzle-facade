@@ -57,6 +57,7 @@ import Home from "@/pages/home/Home";
 import ForgotPassword from "@/pages/forgot-password/ForgotPassword";
 import DashboardHome from "@/pages/dashboard/DashboardHome";
 import Billing from "@/pages/dashboard/screens/billing/Billing";
+import RequestDemo from "@/pages/request-demo/RequestDemo";
 
 const routes = (
   <Routes>
@@ -64,6 +65,8 @@ const routes = (
     <Route path="/register" element={<Register />} />
     <Route path="/login" element={<Login />} />
     <Route path="/forgot-password" element={<ForgotPassword />} />
+    <Route path="/demo-request" element={<Login />} />
+
     <Route path="/dashboard" element={<DashboardHome />}>
       <Route path="employees" element={<UnderConstruction />} />
       <Route path="billing" element={<Billing />}>
@@ -75,7 +78,6 @@ const routes = (
         <Route path="statutory-payments" element={<UnderConstruction />} />
         <Route path="account-statement" element={<UnderConstruction />} />
       </Route>
-      {/* Add more nested routes for dashboard */}
     </Route>
     <Route path="*" element={<UnderConstruction />} />
   </Routes>
