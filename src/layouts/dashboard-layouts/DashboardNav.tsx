@@ -25,19 +25,6 @@ export default function DashboardNav() {
       </Badge>
 
       <div className="flex items-center">
-        <div className="relative flex">
-          <span className="absolute inset-y-0 left-0 pl-3 flex items-center">
-            <Search />
-          </span>
-          <input
-            type="text"
-            className="h-10 pl-10 pr-3 border rounded-md focus:ring-1 focus:ring-primary focus:border-primary"
-            placeholder="Search"
-          />
-        </div>
-      </div>
-
-      <div className="flex items-center">
         <button className="text-muted-foreground mx-3 hover:text-white">
           {allowNotifications ? <Bell /> : <BellOff />}
         </button>

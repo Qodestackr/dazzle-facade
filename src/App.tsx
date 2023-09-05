@@ -18,6 +18,7 @@ import DashboardHome from "@/pages/dashboard/DashboardHome";
 import Billing from "@/pages/dashboard/screens/billing/Billing";
 import RequestDemo from "./pages/request-demo/RequestDemo";
 import { TableDemo } from "./core/components/table/TableTest";
+import { EmployeePayroll } from "./pages/dashboard/screens/payroll/EmployeePayroll";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,10 +31,10 @@ const queryClient = new QueryClient({
       /**
        * This callback will fire any time the query successfully fetches new data or the cache is updated via `setQueryData`.
        */
-      onSuccess: (data: unknown) => {},
+      onSuccess: (data: unknown) => { },
       // onError?: (err: TError) => void;
 
-      onSettled: (data: unknown | undefined) => {},
+      onSettled: (data: unknown | undefined) => { },
       /**
        * Whether errors should be thrown instead of setting the `error` property.
        * If set to `true` or `suspense` is `true`, all errors will be thrown to the error boundary.
@@ -82,7 +83,7 @@ function App() {
           <Route path="events" element={<TableDemo />} />
           <Route path="notice-board" element={<TableDemo />} />
           <Route path="projects" element={<TableDemo />} />
-          <Route path="payroll" element={<TableDemo />} />
+          <Route path="payroll" element={<EmployeePayroll />} />
           <Route path="documents" element={<TableDemo />} />
           <Route path="backups" element={<TableDemo />} />
         </Route>

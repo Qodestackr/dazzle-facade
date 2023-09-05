@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useWindowSize } from "@core/hooks";
 
 import {
   HomeIcon,
@@ -36,14 +37,21 @@ const adminItems = [
   //   name: "Admin Action",
   //   icon: AdminActionOnlyIcon,
   // },
-  { route:"/login", name: "Logout", icon: LogOutIcon}
+  { route: "/login", name: "Logout", icon: LogOutIcon }
 ];
 
 export default function DashboardSidebar() {
+  // const { width } = useWindowSize();
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
+
   return (
-    <aside className="bg-gray-800 text-white w-1/4 min-h-screen p-4">
-      <nav className="max-w-[240px]">
-        <ul>
+    <aside className="bg-gray-800 text-white"> {/*w - full flex md: p-4 overflow-hidden */}
+      <nav>
+        <ul className="overflow-hidden flex flex-row gap-4 justify-between items-end md:items-start md:gap-2 md:flex-col">
           {sidebarItems.map((item, index) => (
             <li key={index} className="mb-4">
               <Link
@@ -51,11 +59,15 @@ export default function DashboardSidebar() {
                 className="flex items-center hover:text-gray-300"
               >
                 {React.createElement(item.icon, { size: 24 })}
-                <span className="hidden lg:inline-block ml-2">{item.name}</span>
+                <span className="hidden lg:inline-block ml-2">
+                  {item.name}
+                </span>
               </Link>
             </li>
           ))}
-          <li className="mt-8 mb-4 text-sm text-gray-400 uppercase">Main</li>
+          <li className="md:mt-8 md:mb-4 text-sm text-gray-400 uppercase hidden md:block">
+            Main
+          </li>
           {adminItems.map((item, index) => (
             <li key={index} className="mb-4">
               <Link
@@ -63,7 +75,9 @@ export default function DashboardSidebar() {
                 className="flex items-center hover:text-gray-300"
               >
                 {React.createElement(item.icon, { size: 24 })}
-                <span className="hidden lg:inline-block ml-2">{item.name}</span>
+                <span className="hidden lg:inline-block ml-2">
+                  {item.name}
+                </span>
               </Link>
             </li>
           ))}

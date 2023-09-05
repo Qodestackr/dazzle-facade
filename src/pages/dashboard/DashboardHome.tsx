@@ -13,23 +13,44 @@ import DashboardSidebar from "@/layouts/dashboard-layouts/sidebar/DashboardSideb
 import DashboardNav from "@/layouts/dashboard-layouts/DashboardNav";
 import Billing from "./screens/billing/Billing";
 
+// function DashboardHome() {
+//   const isAuthenticated = true;
+//   const allowNotifications = false;
+//   return (
+//     <main className="grid lg:grid-cols-[2.5fr,9fr] gap-1 h-screen">
+//       <div className="bg-gray-800 text-white w-full">
+//         <DashboardSidebar />
+//       </div>
+
+//       <div className="bg-gray-100">
+//         <DashboardNav />
+//         <h3 className="text-2xl">Welcome Back</h3>
+//         {/* Cannot remove the Outlet yet I need render some defaults... Show the way */}
+//         <div className="shadow-md rounded-md w-full">
+//           <Outlet />
+//         </div>
+//       </div>
+//     </main>
+//   );
+// }
 function DashboardHome() {
   const isAuthenticated = true;
   const allowNotifications = false;
-  return (
-    <main className="grid lg:grid-cols-[1fr,3fr] h-screen">
-      <div className="bg-gray-800 text-white">
-        <DashboardSidebar />
-      </div>
 
+  return (
+    <main className="grid lg:grid-cols-[2.5fr,9fr] gap-1 h-screen">
       <div className="bg-gray-100">
         <DashboardNav />
         <h3 className="text-2xl">Welcome Back</h3>
         {/* Cannot remove the Outlet yet I need render some defaults... Show the way */}
-        <div className="shadow-md rounded-md">
+        <div className="shadow-md rounded-md w-full">
           <Outlet />
         </div>
       </div>
+
+      <span className="bg-gray-800 text-white order-last lg:order-first">
+        <DashboardSidebar />
+      </span>
     </main>
   );
 }
