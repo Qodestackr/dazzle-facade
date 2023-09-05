@@ -1,5 +1,8 @@
 import { Button } from "@/core/components";
-import React from "react";
+import GooglePlayIMG from "@assets/images/google-play-badge.png"
+import AppleStoreIMG from "@assets/svg/apple-store.svg"
+import { Link } from "react-router-dom";
+
 
 export default function MobileLayoutSection() {
   return (
@@ -22,10 +25,15 @@ export default function MobileLayoutSection() {
           </p>
           <p>Download the App on Google Play or the App Store.</p>
 
-          <div className="flex gap-4 my-4">
-            <Button>GET IT ON Google Play</Button>
-            <Button>Download on the AppStore</Button>
-          </div>
+<div className="w-5/12 flex justify-center items-center">
+  <Link to={"/"}>
+    <img src={GooglePlayIMG} alt="Google Play Store Download" className="w-[200px] h-[52px]" />
+  </Link>
+  <Link to={"/"}>
+    <img src={AppleStoreIMG} alt="Apple App Store Download" className="w-[200px] h-[52px]" />
+  </Link>
+</div>
+
         </div>
 
         {/*  */}
