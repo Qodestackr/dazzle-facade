@@ -1,6 +1,7 @@
 import { Button } from "@/core/components";
 import GooglePlayIMG from "@assets/images/google-play-badge.png"
 import AppleStoreIMG from "@assets/svg/apple-store.svg"
+import MobileAppStoreIMGSample from "@assets/images/_mobile-appstore-download.jpg"
 import { Link } from "react-router-dom";
 
 
@@ -25,7 +26,7 @@ export default function MobileLayoutSection() {
           </p>
           <p>Download the App on Google Play or the App Store.</p>
 
-<div className="w-5/12 flex justify-center items-center">
+<div className="w-5/12 flex flex-col md:flex-row justify-center items-center mt-2">
   <Link to={"/"}>
     <img src={GooglePlayIMG} alt="Google Play Store Download" className="w-[200px] h-[52px]" />
   </Link>
@@ -37,9 +38,8 @@ export default function MobileLayoutSection() {
         </div>
 
         {/*  */}
-        <div>
-          MOBILE IMAGE
-          <img src="" alt="" />
+        <div className="">
+          <img src={MobileAppStoreIMGSample} alt="Appstore mobile app" className="w-[6/12] bg-white h-[450px]" />
         </div>
         {/*  */}
       </div>
