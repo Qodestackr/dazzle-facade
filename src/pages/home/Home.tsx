@@ -18,5 +18,3 @@ export default function Home() {
     </>
   );
 }
-
-// bg-gray-100

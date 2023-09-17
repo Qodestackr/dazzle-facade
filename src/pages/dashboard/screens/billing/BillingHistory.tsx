@@ -1,5 +1,3 @@
-import React from "react";
-
 function BillingHistoryItem({
   invoiceNo,
   dueDate,

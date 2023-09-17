@@ -70,6 +70,7 @@ function Login() {
       <Button type="submit">
         {signUpMutation.isLoading ? "..." : "Login"}
       </Button>
+      {/* TODO: Generic Notification Component for Failure or Whatever */}
 
       <div className="my-3">
         Or <Link to="/register">Register instead</Link>
