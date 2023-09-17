@@ -44,13 +44,13 @@ function Register() {
       <h1 className="text-3xl">Register into Dazzle</h1>
       <div className="mb-4">
         <Input
-          label="Username"
+          label="FirstLastName"
           type="text"
-          placeholder="Enter your username"
-          {...register("username", { required: "Username is required" })}
+          placeholder="Enter First and Last Name"
+          {...register("FirstLastName", { required: "Field is required" })}
         />
-        {errors.username && (
-          <p className="text-red-500">{errors.username.message as ReactNode}</p>
+        {errors.FirstLastName && (
+          <p className="text-red-500">{errors.FirstLastName.message as ReactNode}</p>
         )}
       </div>
       <div className="mb-4">
