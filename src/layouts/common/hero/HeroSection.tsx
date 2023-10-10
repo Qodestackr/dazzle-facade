@@ -14,9 +14,7 @@ export default function HeroSection() {
           </span>
 
           <span className="font-medium text-xl md:text-3xl">
-            Dazzle is the HR-Ops, Everything Starts With
-            <br />
-            People.
+            Dazzle is the HR-Ops, Everything Starts With People.
           </span>
 
           <Link to="/demo-request">
