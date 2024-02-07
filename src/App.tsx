@@ -56,6 +56,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
+      <Nav />
         <Route path="/demo-request" element={<RequestDemo />} />
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -90,6 +91,7 @@ function App() {
         {/*  */}
 
         <Route path="/*" element={<UnderConstruction />} />
+        <Footer />
       </Routes>
 
       <ReactQueryDevtools />

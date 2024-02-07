@@ -41,7 +41,7 @@ function Register() {
       className="w-10/12 md:w-8/12 mx-auto"
       onSubmit={handleSubmit(registerSubmitHandler)}
     >
-      <h1 className="text-3xl">Register into Dazzle</h1>
+      <h1 className="text-3xl">Register into UASU JKUAT CHAPTER</h1>
       <div className="mb-4">
         <Input
           label="First and LastName"

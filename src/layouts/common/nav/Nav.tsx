@@ -21,7 +21,7 @@ const Nav = () => {
       }`}
     >
       <div className="text-xl font-semibold">
-        <NavLink to="/">Dazzle HR</NavLink>
+        <NavLink to="/">UASU JKUAT CHAPTER</NavLink>
       </div>
       <div className={`flex space-x-4 ${width <= 640 ? "mt-4" : "mt-0"}`}>
         {width <= 640 ? (

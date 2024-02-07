@@ -36,10 +36,7 @@ export const SERVICE_FOOTER_LINKS = [
     name: "Careers",
     link: "/careers",
   },
-  {
-    name: "Why Dazzle HR",
-    link: "/why-dazzle-hr",
-  },
+
   {
     name: "Get Social",
     link: "/get-social",

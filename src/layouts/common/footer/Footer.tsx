@@ -138,7 +138,7 @@ export default function Footer() {
       </div>
 
       <div className="flex justify-center items-center">
-        2023 Dazzle HR &trade; • All Rights reserved.
+        2023 UASU JKUAT CHAPTER &trade; • All Rights reserved.
         <Link to={GITHUB_LINK} className="mx-2 text-green-500">
           Source Code
         </Link>
