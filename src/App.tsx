@@ -2,6 +2,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools"; //y Devtools
+import Nav from "@/layouts/common/nav/Nav";
+import Footer from "@/layouts/common/footer/Footer";
+
 
 import {
   Tooltip,
